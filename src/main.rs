@@ -16,7 +16,7 @@ fn main() {
 
         if let Some(x) = guess {
             println!("You guessed: {}", x);
-            match x.cmp(&secret_number) {
+            match x.cmp(secret_number) {
                 Ordering::Less => println!("Too small!"),
                 Ordering::Greater => println!("Too big!"),
                 Ordering::Equal => {
