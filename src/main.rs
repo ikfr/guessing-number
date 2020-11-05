@@ -1,7 +1,6 @@
 use my_ext::kt_ext::KtStd;
 use rand::{thread_rng, Rng};
-use std::cmp::Ordering;
-use std::io::stdin;
+use std::{io::stdin, cmp::Ordering::{Less, Greater, Equal}};
 
 fn main() {
     println!("Guess the number!");
@@ -17,12 +16,9 @@ fn main() {
         if let Some(x) = guess {
             println!("You guessed: {}", x);
             match x.cmp(secret_number) {
-                Ordering::Less => println!("Too small!"),
-                Ordering::Greater => println!("Too big!"),
-                Ordering::Equal => {
-                    println!("You win!");
-                    break;
-                }
+                Less => println!("Too small!"),
+                Greater => println!("Too big!"),
+                Equal => { println!("You win!"); break }
             }
         }
     })
